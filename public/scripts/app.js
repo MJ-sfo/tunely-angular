@@ -52,4 +52,19 @@ function AlbumsIndexController ($http) {
     console.log('There was an error deleting the data', response);
   });
 }
-}
+
+  vm.editAlbum = function(album) {
+    $http({
+      method: 'put',
+      url: 'api/albums/' + album._id,
+      data: album
+    }).then(function successCallback(json) {
+      var index = vm.albums.indexOf(album);
+      console.log('update index is: ', index);
+      vm.albums.splice(index, 1, json.data)
+    }, function errorCallback(response){
+      console.log('There was an error updating the data', response);
+    });
+  }
+
+} // index

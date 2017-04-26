@@ -21,7 +21,7 @@ function config(   $routeProvider,  $locationProvider   ) {
       controller: 'AlbumsIndexController'
     })
     .when('/albums/:id', {
-      template: 'This template will show an album!',
+      templateUrl: 'This template will show an album!',
       controllerAs: 'albumsShowCtrl',
       controller: 'AlbumsShowController'
     });
